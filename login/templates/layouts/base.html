@@ -51,7 +51,7 @@
         <li {% block activepagetwo %}{% endblock %}><a href="{% url 'training:list' %}"> <i class="fa fa-tasks"></i> Training</a></li>
       {% endif %}
       {% if perms.assetdb.add_asset %}
-        <li {% block activepagethree %}{% endblock %}><a href=""> <i class="fa fa-database"></i> Asset Database</a></li>
+        <li {% block activepagethree %}{% endblock %}><a href="{% url 'assetdb:list' %}"> <i class="fa fa-database"></i> Asset Database</a></li>
         {% endif %}
         {% if perms.schedule.add_item %}
         <li {% block activepagefour %}{% endblock %}><a href=""><i class="fa fa-bell"></i> Accountability</a></li>

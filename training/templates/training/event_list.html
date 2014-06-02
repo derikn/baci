@@ -21,8 +21,8 @@
   {% endif %}
 </ul>
 	<br>
-		{% regroup object_list.all by name as day_list %}
-		{% for day in day_list %}
+		{% regroup object_list.all by name as event %}
+		{% for day in event %}
 		<div class="panel panel-default">
     		<div class="panel-heading">
         		<h1 class="panel-title">  {{ day.grouper }}</h1>

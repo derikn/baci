@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 SECRET_KEY = '#4h8#lchpm&n+x5t3+3(d7$y@1uw^p+kmstq^=0&7x62166pi!'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = FALSE
+DEBUG = True
 
 TEMPLATE_DEBUG = True
 
@@ -39,7 +39,8 @@ INSTALLED_APPS = (
     'training',
     'crispy_forms',
     'login',
-    'datetimewidget'
+    'datetimewidget',
+    'assetdb',
 
 )
 
@@ -62,10 +63,8 @@ WSGI_APPLICATION = 'baci.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'baci_adminapp',
-        'USER': 'baciadmin',
-        'PASSWORD': '#2702norland',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'db',
     }
 }
 

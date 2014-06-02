@@ -1,0 +1,44 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %}Assets | {{ block.super }} {%endblock title %}
+{% block activepagetwo %} class="active" {% endblock %}
+{% block headline %}<h1><i class="fa fa-tasks"></i> Current Assets</h1>{% endblock headline%}
+{% block content %}
+<ul class="nav nav-tabs">
+  <li class="active"><a href="{% url 'training:list'%} "><i class="fa fa-bookmark"></i> List Assets</a></li>
+   <li><a href="{% url 'assetdb:create'%} ">Create</a></li>
+   <li><a href="{% url 'assetdb:create'%} ">My Assets</a></li>
+
+
+</ul>
+	<br>
+		{% regroup object_list.all by model as model_list %}
+		{% for model in model_list %}
+		<div class="panel panel-default">
+    		<div class="panel-heading">
+        		<h1 class="panel-title"></h1>
+    		</div>
+    		<table class="table">
+		        <thead>
+		            <tr>
+		                <th>Details</th>
+		                <th>Assigned To</th>
+		                <th>Status</th>
+		                <th>Created By</th>
+		            </tr>
+		        </thead>
+        		<tbody>
+	            {% for asset in model_list %}
+	            <tr>
+					<td class="col-md-3"><a href="{{asset.get_absolute_url}}"> {{asset.model_details}}</a></td>
+	                <td class="col-md-2">{{ asset.assigned_to }}</td>
+	                
+	           		<td class="col-md-2">{{ asset.status }}</td>
+	           		<td class="col-md-2">{{ asset.created_by }}</td>
+	            </tr>
+	            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endfor %}
+{% endblock %}
