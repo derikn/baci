@@ -1,6 +1,6 @@
 from __future__ import absolute_import
 
-from django.conf.urls import patterns, url, include
+from django.conf.urls import patterns, url, include, handler404
 from training import views
 
 urlpatterns = patterns ('',
