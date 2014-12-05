@@ -45,6 +45,10 @@ INSTALLED_APPS = (
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
+    #django quiz
+    'quiz',
+    'multichoice',
+    'true_false',
 
 )
 
@@ -107,6 +111,8 @@ USE_TZ = True
 STATIC_ROOT = '/home/baci/webapps/admin_app_static/'
 STATIC_URL = '/static/'
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' 
 
 STATICFILES_DIRS = (
     "/home/baci/webapps/training_app/lib/python2.7/django/contrib/admin/static/admin",

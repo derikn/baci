@@ -13,6 +13,7 @@ urlpatterns = patterns('',
     url(r'^training/', include('training.urls', namespace="training")),
     url(r'^', include('login.urls', namespace="login")),
     (r'^accounts/', include('allauth.urls')),
+    url(r'^q/', include('quiz.urls')),
 
 
 )
