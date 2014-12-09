@@ -12,14 +12,19 @@ from django.template import RequestContext
 from .forms import RegistrationForm, LoginForm
 #from talks.models import TalkList
 
-class AccountView(generic.TemplateView, views.LoginRequiredMixin):
+class AccountView(
+	generic.TemplateView, 
+	views.LoginRequiredMixin):
+
 	template_name = "account.html"
 
 class HomePageView(generic.TemplateView):
 	template_name = 'home.html'
 
-class SignUpView(views.AnonymousRequiredMixin, views.FormValidMessageMixin,
-                 generic.CreateView):
+class SignUpView(views.AnonymousRequiredMixin, 
+	views.FormValidMessageMixin,
+    generic.CreateView):
+
     form_class = RegistrationForm
     form_valid_message = "Thanks for signing up! Go ahead and login."
     model = User
@@ -36,6 +41,7 @@ class LoginView(
 	views.AnonymousRequiredMixin,
 	views.FormValidMessageMixin,
 	generic.FormView):
+
 	form_class = LoginForm
 	form_valid_message = "You're logged in now."
 	template_name = 'login.html'
@@ -58,8 +64,9 @@ class LogOutView(
 	views.LoginRequiredMixin,
 	views.MessageMixin,
 	generic.RedirectView):
+
 	def get_redirect_url(self):
-		return reverse('login:login')
+		return reverse('login:home')
 
 	def get(self, request, *args, **kwargs):
 		logout(request)
