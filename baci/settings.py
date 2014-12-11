@@ -112,6 +112,15 @@ STATIC_ROOT = '/home/baci/webapps/admin_app_static/'
 STATIC_URL = '/static/'
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
+#########################
+# AllAuth Configuration #
+#########################
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+ACCOUNT_EMAIL_REQUIRED = True
+SOCIALACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_UNIQUE_EMAIL = True
+
+
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' 
 
 STATICFILES_DIRS = (

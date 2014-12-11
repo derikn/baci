@@ -137,7 +137,7 @@ class EventDeleteView(generic.DeleteView,
 
 def handle_page_not_found_404(request):
 
-	return redirect('training:list')
+	return redirect('login:home')
 
 
 

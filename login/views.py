@@ -7,6 +7,9 @@ from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse, reverse_lazy
 from braces import views
 from django.template import RequestContext
+from allauth.socialaccount.adapter import DefaultSocialAccountAdapter
+
+
 
 #relative imports
 from .forms import RegistrationForm, LoginForm
@@ -72,4 +75,12 @@ class LogOutView(
 		logout(request)
 		self.messages.success("You've been logged out. Come back soon!")
 		return super(LogOutView, self).get(request, *args, **kwargs)
+
+class MySocialAccount(DefaultSocialAccountAdapter):
+    def pre_social_login(self, request, sociallogin):
+        u = sociallogin.account.user
+        if not u.email.split('@')[1] == "gobaci.com":
+            raise ImmediateHttpResponse(render_to_response('login:home'))
+
+
 
